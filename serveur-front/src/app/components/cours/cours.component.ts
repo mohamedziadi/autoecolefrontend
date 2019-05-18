@@ -90,5 +90,6 @@ export class CoursComponent implements OnInit {
     });
   }
   loadDataOnScroll(event){
+    console.log("dsdsd");
   }
 }
