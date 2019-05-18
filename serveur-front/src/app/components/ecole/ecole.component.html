@@ -1,0 +1,103 @@
+<p-dataView #dv [value]="list" [rows]="10" [paginator]="true"  [totalRecords]="25" [rowsPerPageOptions]="[5,10,20]" paginatorPosition="both" filterBy="adresse"
+            [sortField]="sortField" [sortOrder]="sortOrder">
+  <p-header>
+    <div class="ui-helper-clearfix">
+      <div class="ui-g">
+        <div class="ui-g-12 ui-md-4">
+          <p-dropdown [options]="sortOptions" [(ngModel)]="sortKey" placeholder="Trier Par" (onChange)="onSortChange($event)" [style]="{'min-width':'140px'}"></p-dropdown>
+        </div>
+        <div class="ui-g-6 ui-md-4 filter-container">
+          <div style="position:relative">
+            <input type="search" pInputText placeholder="ReChercher" (keyup)="dv.filter($event.target.value)">
+          </div>
+        </div>
+        <div class="ui-g-6 ui-md-4" style="text-align:right">
+          <p-dataViewLayoutOptions>
+
+
+          </p-dataViewLayoutOptions>
+        </div>
+      </div>
+    </div>
+  </p-header>
+  <ng-template let-autoEcole pTemplate="listItem">
+    <div class="ui-g" style="padding: 2em;border-bottom: 1px solid #d9d9d9">
+
+      <div class="ui-g-12 ui-md-8 autoRcole-details">
+        <div class="ui-g">
+          <div class="ui-g-2 ui-sm-6"> <i class="far fa-user" size="9x"> <br>Nom : </i></div>
+          <div class="ui-g-10 ui-sm-6"><b>{{autoEcole.nom}}</b></div>
+
+          <div class="ui-g-2 ui-sm-6"> <i class="fas fa-map-marker-alt" size="7x"><br>Adresse : </i></div>
+          <div class="ui-g-10 ui-sm-6"><b>{{autoEcole.adresse}}</b></div>
+
+          <div class="ui-g-2 ui-sm-6"> <i class="fas fa-clock" size="9x">Horaire: </i></div>
+          <div class="ui-g-10 ui-sm-6"><b>{{autoEcole.horaire}}</b></div>
+
+          <div class="ui-g-2 ui-sm-6"> <i class="fas fa-tty">Telephone:</i></div>
+          <div class="ui-g-10 ui-sm-6"><b>{{autoEcole.telephone}}</b></div>
+
+          <div class="ui-g-2 ui-sm-6"> <i class="fas fa-hand-holding-usd" size="9px">Tarif Code:</i></div>
+        <div class="ui-g-10 ui-sm-6"><b>{{autoEcole.tarifCode}}</b></div>
+
+      <div class="ui-g-2 ui-sm-6"> <i class="fas fa-hand-holding-usd">Tarif Conduite:</i></div>
+      <div class="ui-g-10 ui-sm-6"><b>{{autoEcole.tarifConduite}}</b></div>
+    </div>
+      </div>
+
+
+
+      <div class="ui-toolbar-group-left">
+      <div class="ui-g-12 ui-md-1 search-icon">
+        <button pButton type="button" class="ui-button-info" icon="pi pi-search"  pTooltip="Details"  tooltipPosition="left" (click)="selectEcole($event, autoEcole)"></button>
+        <button pButton icon="pi pi-pencil" pTooltip="Inscrir" tooltipPosition="left"   class="ui-button-warning" (click)="inscrir(autoEcole) "></button>
+
+      </div></div>
+    </div>
+  </ng-template>
+  <ng-template let-autoEcole pTemplate="gridItem">
+    <div style="padding:.5em" class="ui-g-12 ui-md-3">
+      <p-panel [header]="autoEcole.nom" [style]="{'text-align':'center'}">
+        <img src="assets/img/profile_small.jpg" width="80">
+        <div class="autoEcole-detail">{{autoEcole.nom}} - {{autoEcole.adresse}} </div>
+        <hr class="ui-widget-content" style="border-top:0">
+        <button pButton type="button" icon="pi pi-search" (click)="selectEcole($event, autoEcole)" style="margin-top:0"></button>
+      </p-panel>
+    </div>
+  </ng-template>
+</p-dataView>
+
+
+<p-dialog header=" autoEcole Details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="false" [style]="{width: '400px'}"  (onAfterHide)="onDialogHide()">
+  <div class="ui-g" *ngIf="selectedEcole">
+    <div class="ui-g-12" style="text-align:center">
+      <img src="assets/showcase/images/demo/{{selectedEcole.adresse}}.png">
+    </div>
+    <div class="ui-g-4">Nom: </div>
+    <div class="ui-g-8">{{selectedEcole.nom}}</div>
+    <div class="ui-g-4">Adress: </div>
+    <div class="ui-g-8">{{selectedEcole.adresse}}</div>
+
+
+
+    <div class="ui-g-4">Horaire: </div>
+    <div class="ui-g-8">{{selectedEcole.horaire}}</div>
+
+    <div class="ui-g-4">Telephone: </div>
+    <div class="ui-g-8">{{selectedEcole.telephone}}</div>
+
+    <div class="ui-g-4">Tarif Code: </div>
+    <div class="ui-g-8">{{selectedEcole.tarifCode}}</div>
+
+    <div class="ui-g-4">tarif Conduite: </div>
+    <div class="ui-g-8">{{selectedEcole.tarifConduite}}</div>
+  </div>
+</p-dialog>
+
+
+
+
+
+
+
+

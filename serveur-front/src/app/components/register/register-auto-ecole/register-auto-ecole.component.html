@@ -1,0 +1,120 @@
+
+<body class="gray-bg">
+
+<div class="middle-box text-center    animated fadeInDown">
+  <div>
+
+
+    <p>Create account to see it in action.</p>
+
+
+    <div class="m-t"  >
+      <p-fieldset legend="Information personnel">
+      <div class="form-group">
+        <input type="text" class="form-control" required pKeyFilter="pint" placeholder="Cin" required [(ngModel)]="moniteur.cin" #cin="ngModel">
+      </div>
+        <div class="col lg-4">
+          <p-message severity="error" [text]="cin.errors['required'] ? 'CIN réquis' : cin.errors['minlength'] ? 'doit etre 8 charactère' : ''"
+                     *ngIf="cin.invalid&&(cin.dirty || cin.touched)"></p-message>
+        </div>
+
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="nom" required   [(ngModel)]="moniteur.nom" #nom="ngModel">
+      </div>
+        <div class="col lg-4">
+          <p-message severity="error" [text]="nom.errors['required'] ? 'Nom réquis' :  ''"
+                     *ngIf="nom.invalid&&(nom.dirty || nom.touched)"></p-message>
+        </div>
+
+
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="prenom" required  [(ngModel)]="moniteur.prenom" #prenom="ngModel">
+      </div>
+
+        <div class="col lg-4">
+          <p-message severity="error" [text]="prenom.errors['required'] ? 'Prénom réquis' :  ''"
+                     *ngIf="prenom.invalid&&(prenom.dirty || prenom.touched)"></p-message>
+        </div>
+      <div class="form-group">
+        <input type="text" pKeyFilter="pint" maxlength="8" minlength="8" class="form-control" placeholder="telephone" required   [(ngModel)]="moniteur.telephone" #tel="ngModel">
+      </div>
+        <div class="col lg-4">
+          <p-message severity="error" [text]="tel.errors['required'] ? 'Téléphone réquis' : tel.errors['minlength'] ? 'doit etre 8 chiffres' : ''"
+                     *ngIf="tel.invalid&&(tel.dirty || tel.touched)"></p-message>
+        </div>
+      <div class="form-group">
+        <input type="email" class="form-control" placeholder="Email" required email
+               [(ngModel)]="moniteur.email" #email="ngModel">
+      </div>
+
+        <div class="col lg-4">
+          <p-message severity="error" [text]="email.errors['required'] ? 'Email réquis' : email.errors['email'] ? 'Email invalid' :''"
+                     *ngIf="email.invalid&&(email.dirty || email.touched)"></p-message>
+        </div>
+
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Nom d'utilisateur" required  [(ngModel)]="moniteur.username" #username="ngModel">
+      </div>
+        <div class="col lg-4">
+          <p-message severity="error" [text]="username.errors['required'] ? 'Nom utilisateur réquis' :  ''"
+                     *ngIf="username.invalid&&(username.dirty || username.touched)"></p-message>
+        </div>
+      <div class="form-group">
+        <input type="password" class="form-control" placeholder="Password" required  [(ngModel)]="moniteur.password" #pwd="ngModel">
+      </div>
+        <div class="col lg-4">
+          <p-message severity="error" [text]="pwd.errors['required'] ? 'Mot de passe réquis' :  ''"
+                     *ngIf="pwd.invalid&&(pwd.dirty || pwd.touched)"></p-message>
+        </div>
+
+    </p-fieldset>
+
+      <br><br>
+
+      <p-fieldset legend="Auto Ecole">
+        <div class="form-group">
+          <input type="text"
+                 class="form-control" placeholder="Nom" required  [(ngModel)]="autoEcole.nom" #nomAuto="ngModel">
+        </div>
+
+        <div class="form-group">
+          <input type="text"
+                 class="form-control" placeholder="Adresse" required  [(ngModel)]="autoEcole.adresse" #adresseAuto="ngModel">
+        </div>
+
+        <div class="form-group">
+          <input type="text"
+                 class="form-control" placeholder="Téléphone" required  [(ngModel)]="autoEcole.telephone" #telAuto="ngModel">
+        </div>
+        <div class="form-group">
+          <textarea pInputTextarea
+                 class="form-control" placeholder="Horaire" required  [(ngModel)]="autoEcole.horaire" #horaireAuto="ngModel">
+          </textarea>
+        </div>
+        <div class="form-group">
+          <input type="text"
+                 class="form-control" placeholder="Tarif Code" required  [(ngModel)]="autoEcole.tarifCode" #tarifCodeAuto="ngModel">
+        </div>
+        <div class="form-group">
+          <input type="text"
+                 class="form-control" placeholder="Tarif Conduite" required  [(ngModel)]="autoEcole.tarifConduite" #tarifConduiteAuto="ngModel">
+        </div>
+
+      </p-fieldset>
+
+    <div class="form-group">
+        <div class="checkbox i-checks"><label> <div class="icheckbox_square-green" style="position: relative;"><input type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div><i></i> Agree the terms and policy </label></div>
+      </div>
+      <button (click)="register()"  class="btn btn-primary block full-width m-b">S'inscrit</button>
+
+      <p class="text-muted text-center"><small>Already have an account?</small></p>
+      <a class="btn btn-sm btn-white btn-block" href="/login">Login</a>
+    </div>
+    <p class="m-t"> <small>Inspinia we app framework base on Bootstrap 3 © 2014</small> </p>
+  </div>
+</div>
+
+
+<p-toast></p-toast>
+
+</body>

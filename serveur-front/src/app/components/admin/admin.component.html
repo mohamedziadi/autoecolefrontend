@@ -1,0 +1,34 @@
+<button *appAuthority="['ROLE_Admin']" pButton label="Ajouter"  icon="pi pi-plus" style="float: right"  class="ui-button-success"
+        (click)="addAdmin()" ></button>
+<br><br><br>
+<p-table [value]="list">
+  <ng-template pTemplate="header">
+    <tr>
+      <th style="text-align: center">CIN</th>
+      <th style="text-align: center">Nom</th>
+      <th style="text-align: center">Prénom</th>
+      <th style="text-align: center">Email</th>
+      <th style="text-align: center">Téléphone</th>
+      <th style="text-align: center">Login</th>
+      <th style="text-align: center" width="10%">Actions</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-admin>
+    <tr>
+      <td>{{admin.cin}}</td>
+      <td>{{admin.nom}}</td>
+      <td>{{admin.prenom}}</td>
+      <td>{{admin.email}}</td>
+      <td>{{admin.telephone}}</td>
+      <td>{{admin.username}}</td>
+      <td>
+        <button pButton icon="pi pi-trash" pTooltip="Supprimer"  tooltipPosition="top"  class="ui-button-danger" (click)="delete(admin) "
+        ></button>
+        <button pButton icon="pi pi-pencil" pTooltip="Editer" tooltipPosition="top" class="ui-button-warning" (click)="edit(admin) "
+                style="margin-left: 10px"></button>
+
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+<!-- appAuthority="['ROLE_Admin']" -->

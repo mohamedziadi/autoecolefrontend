@@ -1,0 +1,108 @@
+<div class="form-group row">
+  <label class="col-lg-2 col-form-label">Cin</label>
+
+  <div class="col-lg-6">
+    <input  class="form-control" type="text" minlength="8" maxlength="8" [(ngModel)]="candidat.cin"
+            #cin="ngModel" required pKeyFilter="pint" placeholder=" Entrer Cin" [readonly]="!btnVisible"/>
+  </div>
+  <div class="col lg-4">
+    <p-message severity="error" [text]="cin.errors['required'] ? 'CIN réquis' : cin.errors['minlength'] ? 'doit etre 8 charactère' : ''"
+               *ngIf="cin.invalid&&(cin.dirty || cin.touched)"></p-message>
+  </div>
+</div>
+
+<div class="form-group row">
+  <label class="col-lg-2 col-form-label">Nom</label>
+
+  <div class="col-lg-6">
+    <input  class="form-control" type="text" [(ngModel)]="candidat.nom"
+            #nom="ngModel" required  placeholder=" Entrer Nom"/>
+  </div>
+  <div class="col lg-4">
+    <p-message severity="error" [text]="nom.errors['required'] ? 'Nom réquis' :  ''"
+               *ngIf="nom.invalid&&(nom.dirty || nom.touched)"></p-message>
+  </div>
+</div>
+
+
+
+<div class="form-group row">
+  <label class="col-lg-2 col-form-label">Prénom</label>
+
+  <div class="col-lg-6">
+    <input  class="form-control" type="text"  [(ngModel)]="candidat.prenom"
+            #prenom="ngModel" required  placeholder=" Entrer Prenom"/>
+  </div>
+  <div class="col lg-4">
+    <p-message severity="error" [text]="prenom.errors['required'] ? 'Prénom réquis' :  ''"
+               *ngIf="prenom.invalid&&(prenom.dirty || prenom.touched)"></p-message>
+  </div>
+</div>
+
+
+<div class="form-group row">
+  <label class="col-lg-2 col-form-label">Email</label>
+
+  <div class="col-lg-6">
+    <input  class="form-control" type="text" email [(ngModel)]="candidat.email"
+            #email="ngModel" required  placeholder=" Entrer email"/>
+  </div>
+  <div class="col lg-4">
+    <p-message severity="error" [text]="email.errors['required'] ? 'Email réquis' : email.errors['email'] ? 'Email invalid' :''"
+               *ngIf="email.invalid&&(email.dirty || email.touched)"></p-message>
+  </div>
+</div>
+
+
+
+
+<div class="form-group row">
+  <label class="col-lg-2 col-form-label">Téléphone</label>
+
+  <div class="col-lg-6">
+    <input  class="form-control" type="text" minlength="8" maxlength="8" [(ngModel)]="candidat.telephone"
+            #tel="ngModel" required pKeyFilter="pint" placeholder=" Entrer Telephone"/>
+  </div>
+  <div class="col lg-4">
+    <p-message severity="error" [text]="tel.errors['required'] ? 'Téléphone réquis' : tel.errors['minlength'] ? 'doit etre 8 chiffres' : ''"
+               *ngIf="tel.invalid&&(tel.dirty || tel.touched)"></p-message>
+  </div>
+</div>
+
+
+<div class="form-group row">
+  <label class="col-lg-2 col-form-label">Nom d'utilisateur</label>
+
+  <div class="col-lg-6">
+    <input  class="form-control" type="text" [(ngModel)]="candidat.username"
+            #username="ngModel" required  placeholder=" Entrer Nom d'utilisateur"/>
+  </div>
+  <div class="col lg-4">
+    <p-message severity="error" [text]="username.errors['required'] ? 'Nom utilisateur réquis' :  ''"
+               *ngIf="username.invalid&&(username.dirty || username.touched)"></p-message>
+  </div>
+</div>
+
+
+<div class="form-group row" [hidden]="!btnVisible">
+  <label class="col-lg-2 col-form-label">Mot de passe</label>
+
+  <div class="col-lg-6">
+    <input  class="form-control" type="password" [(ngModel)]="candidat.password"
+            #pwd="ngModel" required  placeholder=" Entrer Mot de passe"/>
+  </div>
+  <div class="col lg-4">
+    <p-message severity="error" [text]="pwd.errors['required'] ? 'Mot de passe réquis' :  ''"
+               *ngIf="pwd.invalid&&(pwd.dirty || pwd.touched)"></p-message>
+  </div>
+</div>
+
+<hr>
+
+<button *ngIf="btnVisible" class="ui-button-success " pButton label="Ajouter" (click)="ajouter()"
+        [disabled]="cin.invalid || nom.invalid || prenom.invalid || email.invalid || username.invalid || tel.invalid || pwd.invalid "></button>
+
+
+
+<button *ngIf="!btnVisible" class="ui-button-warning btn-block" pButton label="Modifier" (click)="modifier()"
+        [disabled]="cin.invalid || nom.invalid || prenom.invalid || email.invalid || username.invalid || tel.invalid "></button>

@@ -1,0 +1,26 @@
+<button *appAuthority="['ROLE_Inscription']" pButton label="Ajouter"  icon="pi pi-plus" style="float: right"  class="ui-button-success"
+        (click)="addInscription()" ></button>
+<br><br><br>
+<p-table [value]="list">
+  <ng-template pTemplate="header">
+    <tr>
+      <th style="text-align: center">Candidat</th>
+      <th style="text-align: center">Date</th>
+
+      <th style="text-align: center" width="10%">Actions</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-inscription>
+    <tr>
+      <td>{{inscription.candidat.nom}} {{inscription.candidat.prenom}}</td>
+      <td>{{inscription.date}}</td>
+
+
+      <td>
+        <p-inputSwitch [(ngModel)]="inscription.confirmed"  (onChange)="handleChange(inscription)" ></p-inputSwitch>
+
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+<!-- appAuthority="['ROLE_Inscription']" -->

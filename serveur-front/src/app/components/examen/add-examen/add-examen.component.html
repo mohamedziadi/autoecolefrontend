@@ -1,0 +1,62 @@
+<div class="container col-md-8">
+  <div class="card">
+    <div style="text-align:center">
+      <div class="card-header">
+
+        <p-toast [style]="{marginTop: '80px'}"></p-toast>
+
+        <form [formGroup]="addForm" (ngSubmit)="onSubmit(addForm.value)">
+          <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+
+            <div class="ui-grid-row">
+              <div class="ui-grid-col-2">
+                <h4>categorie </h4>
+              </div>
+              <div class="ui-grid-col-8"><br>
+                <input pInputText type="text" formControlName="categorie"  placeholder="Entrer  Endroit"/>
+              </div></div>
+
+            <div class="ui-grid-row">
+              <div class="ui-grid-col-2">
+                <h5>numConvocation </h5>
+              </div>
+              <div class="ui-grid-col-8"><br>
+                <input pInputText type="text" formControlName="numConvocation"  placeholder="Entrer  nbHoraire"/>
+              </div></div>
+
+            <div class="ui-grid-row">
+              <div class="ui-grid-col-2">
+                <h5>centreExamen </h5>
+              </div>
+              <div class="ui-grid-col-8"><br>
+                <input pInputText type="text" formControlName="centreExamen "  placeholder="Entrer tarif"/>
+              </div></div>
+
+            <div class="ui-grid-row">
+              <div class="ui-grid-col-2">
+                <h5>fraisInscription </h5>
+              </div>
+              <div class="ui-grid-col-8"><br>
+                <input pInputText type="text" formControlName="fraisInscription"  placeholder="Entrer seance Total"/>
+              </div></div><br>
+            <div class="ui-grid-row">
+              <div class="ui-grid-col-2">
+                <h5>resultat </h5>
+              </div>
+              <div class="ui-grid-col-8"><br>
+                <input pInputText type="text" formControlName="resultat"  placeholder="Entrer seance Total"/>
+              </div></div><br>
+            <div class="ui-grid-row">
+              <div class="ui-grid-col-2">
+                <h5>type </h5>
+              </div>
+              <div class="ui-grid-col-8"><br>
+                <input pInputText type="text" formControlName="type"  placeholder="Entrer seance Total"/>
+              </div></div><br>
+
+
+            <button class="btn btn-info">sauvgarder</button>
+          </div> </form>
+
+      </div>
+    </div></div></div>

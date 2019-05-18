@@ -1,0 +1,30 @@
+<button pButton  class="ui-button-text ui-button-rounded" icon="pi pi-arrow-right" label="ajouter" cornerStyleClass="right_top"  style="width:100px" (click)="openAddCours()"> </button>
+
+
+<div class="pr small">
+    <p-dataTable #table  [value]="list" [scrollable]="true" [rows]="20" scrollHeight="200px" [virtualScroll]="true" (onLazyLoad)="loadDataOnScroll($event)"
+                 [lazy]="true" [totalRecords]="totalRecords"  [emptyMessage]="'tableau vide'">
+      <p-column [sortable]="false" header="">
+        <ng-template let-cours="rowData" pTemplate="body">
+            {{cours.nom}}
+        </ng-template>
+      </p-column>
+<!--      <p-column [sortable]="false" header="">
+        <ng-template let-cours="rowData" pTemplate="body">
+            {{cours.description}}
+        </ng-template>
+      </p-column>-->
+      <p-column [sortable]="false" header=""
+                cssClass="action-btn">
+        <ng-template let-cours="rowData" let-i="rowIndex" pTemplate="body">
+          <span><i class="glyphicon glyphicon-pencil " title="Edit"
+             (click)="update(cours,i)" ></i></span>
+          <i class="glyphicon glyphicon-trash " title="Supprimer"
+             (click)="delete(cours.idCrs,i)" ></i>
+        </ng-template>
+
+      </p-column>
+
+    </p-dataTable>
+</div>
+

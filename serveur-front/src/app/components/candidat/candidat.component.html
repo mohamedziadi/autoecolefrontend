@@ -1,0 +1,34 @@
+<!--<button pButton label="Ajouter" icon="pi pi-plus" style="float: right" class="ui-button-success"
+        (click)="addCandidat()" ></button>-->
+<br><br><br>
+<p-table [value]="list">
+  <ng-template pTemplate="header">
+    <tr>
+      <th style="text-align: center">CIN</th>
+      <th style="text-align: center">Nom</th>
+      <th style="text-align: center">Prénom</th>
+      <th style="text-align: center">Email</th>
+      <th style="text-align: center">Téléphone</th>
+      <th style="text-align: center">Login</th>
+      <th style="text-align: center" width="10%">Actions</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-candidat>
+    <tr>
+      <td>{{candidat.cin}}</td>
+      <td>{{candidat.nom}}</td>
+      <td>{{candidat.prenom}}</td>
+      <td>{{candidat.email}}</td>
+      <td>{{candidat.telephone}}</td>
+      <td>{{candidat.username}}</td>
+      <td>
+        <button pButton icon="pi pi-trash" pTooltip="Supprimer" style="margin-center: 40px"  tooltipPosition="top" class="ui-button-danger" (click)="delete(candidat) "
+        ></button>
+       <!-- <button pButton icon="pi pi-pencil" pTooltip="Editer" tooltipPosition="top" class="ui-button-warning" (click)="edit(candidat) "
+                style="margin-left: 10px"></button> -->
+
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+<!-- appAuthority="['ROLE_Secretaire']" -->

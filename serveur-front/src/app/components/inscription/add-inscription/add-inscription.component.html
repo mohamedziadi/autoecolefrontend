@@ -1,0 +1,65 @@
+<div class="form-group row">
+  <label class="col-lg-2 col-form-label">id</label>
+
+  <div class="col-lg-6">
+    <input  class="form-control" type="text" minlength="8" maxlength="8" [(ngModel)]="inscription.id"
+            #cin="ngModel" required pKeyFilter="pint" placeholder=" Entrer Cin" [readonly]="!btnVisible"/>
+  </div>
+  <div class="col lg-4">
+    <p-message severity="error" [text]="cin.errors['required'] ? 'CIN réquis' : id.errors['minlength'] ? 'doit etre 8 charactère' : ''"
+               *ngIf="id.invalid&&(id.dirty || id.touched)"></p-message>
+  </div>
+</div>
+
+
+
+<div class="form-group row">
+  <label class="col-lg-2 col-form-label">Date</label>
+
+  <div class="col-lg-6">
+    <input  class="form-control" type="text" minlength="8" maxlength="8" [(ngModel)]="inscription.date"
+            #date="ngModel" required pKeyFilter="pint" placeholder=" Entrer Cin"/>
+  </div>
+  <div class="col lg-4">
+    <p-message severity="error" [text]="date.errors['required'] ? 'Téléphone réquis' : date.errors['minlength'] ? 'doit etre 8 chiffres' : ''"
+               *ngIf="tel.invalid&&(date.dirty || date.touched)"></p-message>
+  </div>
+</div>
+
+
+<div class="form-group row">
+  <label class="col-lg-2 col-form-label">ModePayement</label>
+
+  <div class="col-lg-6">
+    <input  class="form-control" type="text" [(ngModel)]="inscription.modePayement"
+            #username="ngModel" required  placeholder=" Entrer Nom d'utilisateur"/>
+  </div>
+  <div class="col lg-4">
+    <p-message severity="error" [text]="username.errors['required'] ? 'Nom utilisateur réquis' :  ''"
+               *ngIf="modePayement.invalid&&(modePayement.dirty || modePayement.touched)"></p-message>
+  </div>
+</div>
+
+
+<div class="form-group row" [hidden]="!btnVisible">
+  <label class="col-lg-2 col-form-label">Mot de passe</label>
+
+  <div class="col-lg-6">
+    <input  class="form-control" type="password" [(ngModel)]="inscription.password"
+            #pwd="ngModel" required  placeholder=" Entrer Mot de passe"/>
+  </div>
+  <div class="col lg-4">
+    <p-message severity="error" [text]="pwd.errors['required'] ? 'Mot de passe réquis' :  ''"
+               *ngIf="pwd.invalid&&(pwd.dirty || pwd.touched)"></p-message>
+  </div>
+</div>
+
+<hr>
+
+<button *ngIf="btnVisible" class="ui-button-success " pButton label="Ajouter" (click)="ajouter()"
+        [disabled]="cin.invalid || nom.invalid || prenom.invalid || email.invalid || username.invalid || tel.invalid || pwd.invalid "></button>
+
+
+
+<button *ngIf="!btnVisible" class="ui-button-warning btn-block" pButton label="Modifier" (click)="modifier()"
+        [disabled]="cin.invalid || nom.invalid || prenom.invalid || email.invalid || username.invalid || tel.invalid "></button>

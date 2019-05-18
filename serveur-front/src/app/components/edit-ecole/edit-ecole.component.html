@@ -1,0 +1,106 @@
+<div class="form-group row">
+  <label class="col-lg-2 col-form-label">Cin</label>
+
+  <div class="col-lg-6">
+    <input  class="form-control" type="text" minlength="8" maxlength="8" [(ngModel)]="autoEcole.cin"
+            #cin="ngModel" required pKeyFilter="pint" placeholder=" Entrer Cin" [readonly]="!btnVisible"/>
+  </div>
+  <div class="col lg-4">
+    <p-message severity="error" [text]="cin.errors['required'] ? 'CIN réquis' : cin.errors['minlength'] ? 'doit etre 8 charactère' : ''"
+               *ngIf="cin.invalid&&(cin.dirty || cin.touched)"></p-message>
+  </div>
+</div>
+
+<div class="form-group row">
+  <label class="col-lg-2 col-form-label">Nom</label>
+
+  <div class="col-lg-6">
+    <input  class="form-control" type="text" [(ngModel)]="autoEcole.nom"
+            #nom="ngModel" required  placeholder=" Entrer Cin"/>
+  </div>
+  <div class="col lg-4">
+    <p-message severity="error" [text]="nom.errors['required'] ? 'Nom réquis' :  ''"
+               *ngIf="nom.invalid&&(nom.dirty || nom.touched)"></p-message>
+  </div>
+</div>
+
+
+
+<div class="form-group row">
+  <label class="col-lg-2 col-form-label">Prénom</label>
+
+  <div class="col-lg-6">
+    <input  class="form-control" type="text"  [(ngModel)]="autoEcole.adresse"
+            #adresse="ngModel" required  placeholder=" Entrer Cin"/>
+  </div>
+  <div class="col lg-4">
+    <p-message severity="error" [text]="adresse.errors['required'] ? 'Prénom réquis' :  ''"
+               *ngIf="adresse.invalid&&(adresse.dirty || adresse.touched)"></p-message>
+  </div>
+</div>
+
+
+<div class="form-group row">
+  <label class="col-lg-2 col-form-label">Email</label>
+
+  <div class="col-lg-6">
+    <input  class="form-control" type="text" horaire [(ngModel)]="autoEcole.horaire"
+            #horaire="ngModel" required  placeholder=" Entrer email"/>
+  </div>
+  <div class="col lg-4">
+    <p-message severity="error" [text]="horaire.errors['required'] ? 'Email réquis' : email.errors['horaire'] ? 'Email invalid' :''"
+               *ngIf="horaire.invalid&&(horaire.dirty || horaire.touched)"></p-message>
+  </div>
+</div>
+
+
+
+
+<div class="form-group row">
+  <label class="col-lg-2 col-form-label">Téléphone</label>
+
+  <div class="col-lg-6">
+    <input  class="form-control" type="text" minlength="8" maxlength="8" [(ngModel)]="autoEcole.telephone"
+            #tel="ngModel" required pKeyFilter="pint" placeholder=" Entrer Cin"/>
+  </div>
+  <div class="col lg-4">
+    <p-message severity="error" [text]="tel.errors['required'] ? 'Téléphone réquis' : tel.errors['minlength'] ? 'doit etre 8 chiffres' : ''"
+               *ngIf="tel.invalid&&(tel.dirty || tel.touched)"></p-message>
+  </div>
+</div>
+
+
+<div class="form-group row">
+  <label class="col-lg-2 col-form-label">Nom d'utilisateur</label>
+
+  <div class="col-lg-6">
+    <input  class="form-control" type="text" [(ngModel)]="autoEcole.tarifCode"
+            #username="ngModel" required  placeholder=" Entrer Nom d'utilisateur"/>
+  </div>
+  <div class="col lg-4">
+    <p-message severity="error" [text]="tarifCode.errors['required'] ? 'Nom utilisateur réquis' :  ''"
+               *ngIf="tarifCode.invalid&&(tarifCode.dirty || tarifCode.touched)"></p-message>
+  </div>
+</div>
+
+
+<div class="form-group row" [hidden]="!btnVisible">
+  <label class="col-lg-2 col-form-label">Mot de passe</label>
+
+  <div class="col-lg-6">
+    <input  class="form-control" type="text" [(ngModel)]="autoEcole.tarifConduite"
+            #tarifConduite="ngModel" required  placeholder=" Entrer Mot de passe"/>
+  </div>
+  <div class="col lg-4">
+    <p-message severity="error" [text]="tarifConduite.errors['required'] ? 'Mot de passe réquis' :  ''"
+               *ngIf="tarifConduite.invalid&&(pwd.dirty || tarifConduite.touched)"></p-message>
+  </div>
+</div>
+
+<hr>
+
+
+
+
+<button *ngIf="!btnVisible" class="ui-button-warning btn-block" pButton label="Modifier" (click)="modifier()"></button>
+
