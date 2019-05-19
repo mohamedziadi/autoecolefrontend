@@ -38,5 +38,6 @@ export class AddOrUpdateCoursComponent implements OnInit,OnDestroy{
   }
 
   ngOnDestroy(): void {
+    console.log("fdfd");
   }
 }
