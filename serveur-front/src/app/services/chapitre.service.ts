@@ -16,11 +16,11 @@ export class ChapitreService {
   public getAll(): Observable<Chapitre[]> {
     return this.httpClient.get<Chapitre[]>(this.url);
   }
-  public save(chapitre: Chapitre) {
-    return this.httpClient.post(this.url, chapitre);
+  public save(chapitreAndCoursId:any) {
+    return this.httpClient.post(this.url, chapitreAndCoursId);
   }
-  public update(chapitre: Chapitre): Observable<any> {
-    return this.httpClient.put<any>(this.url, chapitre);
+  public update(chapitre: Chapitre,idChap:any): Observable<any> {
+    return this.httpClient.put<any>(this.url + '/' + idChap, chapitre);
 
   }
   public delete(idChap: number): Observable<any> {

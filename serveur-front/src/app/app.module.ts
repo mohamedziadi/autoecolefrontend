@@ -37,11 +37,9 @@ import { AddExamenComponent } from './components/examen/add-examen/add-examen.co
 import { EditExamenComponent } from './components/examen/edit-examen/edit-examen.component';
 
 import { CoursComponent } from './components/cours/cours.component';
-import {
-  EditChapitreComponent
-} from './components/chapitre/edit-chapitre/edit-chapitre.component';
+
 import { ChapitreComponent } from './components/chapitre/chapitre.component';
-import { AddChapitreComponent } from './components/chapitre/add-chapitre/add-chapitre.component';
+import { AddOrUpdateChapitreComponent } from './components/chapitre/add-or-update-chapitre/add--or-update-chapitre.component';
 
 import { InscriptionComponent } from './components/inscription/inscription.component';
 import { RegisterAutoEcoleComponent } from './components/register/register-auto-ecole/register-auto-ecole.component';
@@ -73,6 +71,7 @@ import {FullCalendarModule} from 'primeng/fullcalendar';
 import {AddOrUpdateCoursComponent} from "./components/cours/add-or-update-cours/add-or-update.component";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { DataTableModule } from 'primeng/primeng';
+import {CoursDetailsComponent} from "./components/cours/cours-details.component.ts/cours-details.component";
 
 
 
@@ -104,10 +103,9 @@ import { DataTableModule } from 'primeng/primeng';
     EditExamenComponent,
     CoursComponent,
     AddOrUpdateCoursComponent,
-    EditChapitreComponent,
+    AddOrUpdateChapitreComponent,
     ChapitreComponent,
-    AddChapitreComponent,
-    ChapitreComponent,
+    CoursDetailsComponent,
     InscriptionComponent,
     RegisterAutoEcoleComponent,
     MoniteurComponent,

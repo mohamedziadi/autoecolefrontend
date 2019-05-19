@@ -31,6 +31,7 @@ import {QuizComponent} from './components/quiz/quiz.component';
 import {TestComponent} from './components/test/test.component';
 import {EditEcoleComponent} from './components/edit-ecole/edit-ecole.component';
 import {NotificationComponent} from './components/notification/notification.component';
+import {AddOrUpdateChapitreComponent} from "./components/chapitre/add-or-update-chapitre/add--or-update-chapitre.component";
 
 
 
@@ -46,7 +47,9 @@ const routes: Routes = [
       {path: 'examen', component: ExamenComponent},
       {path: 'add-examen', component: AddExamenComponent},
       {path: 'cours', component: CoursComponent},
-      {path: 'add-cours', component: AddOrUpdateCoursComponent},
+      {path: 'cours/:idCours',component: CoursComponent},
+      {path: 'add-or-update-cours', component: AddOrUpdateCoursComponent},
+      {path: 'add-or-update-chapitre', component: AddOrUpdateChapitreComponent},
       {path: 'moniteur', component: MoniteurComponent},
       {path: 'moniteur/:param', component: AddMoniteurComponent},
       {path: 'secretaire', component: SecretaireComponent},

@@ -3,3 +3,7 @@
   padding-bottom: 25px !important;
 
 }
+
+::ng-deep .ui-datatable tr {
+  cursor: pointer;
+}
