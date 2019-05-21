@@ -26,4 +26,8 @@ export class ChapitreService {
   public delete(idChap: number): Observable<any> {
     return this.httpClient.delete<any>(this.url + '/' + idChap);
   }
+
+  public getAllByIdCrs(idCrs:number): Observable<any> {
+    return this.httpClient.get(this.url + "/get-by-id-cours/" + idCrs );
+  }
 }

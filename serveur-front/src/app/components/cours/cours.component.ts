@@ -8,6 +8,7 @@ import {CoursService} from '../../services/cours.service';
 import {DataTable} from "primeng/primeng";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {AddOrUpdateCoursComponent} from "./add-or-update-cours/add-or-update.component";
+import {ChapitreService} from "../../services/chapitre.service";
 
 @Component({
   selector: 'app-cours',
@@ -22,8 +23,10 @@ export class CoursComponent implements OnInit {
   public isDetail: boolean = false;
   public selectedEntity:any;
   public routerSubscription: any;
+  public currentCoursId: any;
 
   constructor(private  coursService: CoursService,
+              private  chapitreService: ChapitreService,
               private confirmationService: ConfirmationService,
               private router: Router,
               private modalService: NgbModal,
@@ -100,6 +103,7 @@ export class CoursComponent implements OnInit {
   private subscribeToRouter() {
     this.routerSubscription = this.activateRoute.params;
     if (this.activateRoute.params['value']['idCours']) {
+      this.currentCoursId = this.activateRoute.params['value']['idCours'];
       this.isDetail = true;
 /*      this.routerSubscription
         .map(params => params['idCours'])
@@ -107,7 +111,7 @@ export class CoursComponent implements OnInit {
         .subscribe(entity => {
           this.selectedEntity = entity;
         });*/
-      this.coursService.getByid((this.activateRoute.params['value']['idCours']))
+      this.chapitreService.getAllByIdCrs((this.activateRoute.params['value']['idCours']))
     .subscribe(entity => {
         this.selectedEntity = entity;
       });

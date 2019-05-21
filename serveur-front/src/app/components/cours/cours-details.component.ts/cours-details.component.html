@@ -1,6 +1,4 @@
 
-<span><h2>{{cours?.nom}}</h2></span>
-<app-chapitre [chapitres]="cours && cours.chapitres ? cours.chapitres:[]"
-              [idCrs]="cours && cours.idCrs ? cours.idCrs:''"  >
-
+<app-chapitre [chapitres]="chapitres ?chapitres:[]"
+              [idCrs]="coursId">
 </app-chapitre>
