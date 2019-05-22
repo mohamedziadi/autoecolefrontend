@@ -20,11 +20,11 @@ export class ChapitreService {
     return this.httpClient.post(this.url, chapitreAndCoursId);
   }
   public update(chapitre: Chapitre,idChap:any): Observable<any> {
-    return this.httpClient.put<any>(this.url + '/' + idChap, chapitre);
+    return this.httpClient.put(this.url + '/' + idChap, chapitre);
 
   }
   public delete(idChap: number): Observable<any> {
-    return this.httpClient.delete<any>(this.url + '/' + idChap);
+    return this.httpClient.delete(this.url + '/' + idChap);
   }
 
   public getAllByIdCrs(idCrs:number): Observable<any> {

@@ -94,12 +94,6 @@ export class CoursComponent implements OnInit {
     this.router.navigate(['cours', event.data.idCrs]);
   }
 
-
-  public returnView(event: any) {
-    this.router.navigate(['cours']);
-  }
-
-
   private subscribeToRouter() {
     this.routerSubscription = this.activateRoute.params;
     if (this.activateRoute.params['value']['idCours']) {

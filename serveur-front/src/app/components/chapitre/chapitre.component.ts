@@ -68,4 +68,8 @@ export class ChapitreComponent implements OnInit {
       this.chapitres = this.chapitres.splice(0);
     });
   }
+
+  public returnView(event: any) {
+    this.router.navigate(['cours']);
+  }
 }

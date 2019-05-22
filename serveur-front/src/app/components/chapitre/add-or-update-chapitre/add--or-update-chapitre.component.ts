@@ -27,7 +27,7 @@ export class AddOrUpdateChapitreComponent implements OnInit {
 
     if (this.isUpdate == true){
       this.formGroup.patchValue({
-        idChap:this.selectedRow.idCrs,
+        idChap:this.selectedRow.idChap,
         nom:this.selectedRow.nom,
         description:this.selectedRow.description
       })

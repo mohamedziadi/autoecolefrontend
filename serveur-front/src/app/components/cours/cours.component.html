@@ -1,10 +1,10 @@
 <div *ngIf="!isDetail">
-<button pButton  class="ui-button-text ui-button-rounded" icon="pi pi-arrow-right" label="ajouter" cornerStyleClass="right_top"  style="width:100px" (click)="openAddCours()"> </button>
+<button pButton  class="ui-button-text ui-button-rounded" icon="pi pi-arrow-right" label="Ajouter" cornerStyleClass="right_top"  style="width:100px" (click)="openAddCours()"> </button>
 
 
 <div class="pr small">
     <p-dataTable #table  [value]="list" [scrollable]="true" [rows]="20" scrollHeight="200px" [virtualScroll]="true" (onLazyLoad)="loadDataOnScroll($event)"
-                 [lazy]="true" [totalRecords]="totalRecords"  [emptyMessage]="'tableau vide'" (onRowClick)="loadChapters($event)">
+                 [lazy]="true" [totalRecords]="list.length"  [emptyMessage]="'tableau vide'" (onRowClick)="loadChapters($event)">
       <p-column [sortable]="false" header="">
         <ng-template let-cours="rowData" pTemplate="body">
             {{cours.nom}}

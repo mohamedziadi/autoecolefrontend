@@ -4,6 +4,14 @@
 
 }
 
-::ng-deep .ui-datatable tr {
+::ng-deep  .ui-datatable tr {
   cursor: pointer;
+}
+::ng-deep  .ui-datatable thead {
+  display: none !important;
+}
+
+::ng-deep   .ui-datatable .ui-datatable-data>tr>td{
+  border-style: none;
+
 }

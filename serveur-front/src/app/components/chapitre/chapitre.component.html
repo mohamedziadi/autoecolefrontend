@@ -1,4 +1,7 @@
-<button pButton  class="ui-button-text ui-button-rounded" icon="pi pi-arrow-right" label="ajouter" cornerStyleClass="right_top"  style="width:100px" (click)="openAddChapitre()"> </button>
+
+<button pButton  class="ui-button-text ui-button-rounded" icon="pi pi-arrow-left" label="Retour" cornerStyleClass="right_top"  style="width:100px" (click)="returnView()"> </button>
+
+<button pButton  class="ui-button-text ui-button-rounded" icon="pi pi-arrow-right" label="Ajouter" cornerStyleClass="right_top"  style="width:100px" (click)="openAddChapitre()"> </button>
 
 <div class="pr small">
   <p-dataTable #table  [value]="chapitres" [scrollable]="true" [rows]="20" scrollHeight="200px" [virtualScroll]="true"
@@ -8,18 +11,18 @@
         {{chapitre.nom}}
       </ng-template>
     </p-column>
-    <p-column [sortable]="false" header="">
+<!--    <p-column [sortable]="false" header="">
             <ng-template let-chapitre="rowData" pTemplate="body">
                 {{chapitre.description}}
             </ng-template>
-          </p-column>
+          </p-column>-->
     <p-column [sortable]="false" header=""
               cssClass="action-btn">
       <ng-template let-chapitre="rowData" let-i="rowIndex" pTemplate="body">
           <span><i class="glyphicon glyphicon-pencil " title="Edit"
                    (click)="update(chapitre,i)" ></i></span>
         <i class="glyphicon glyphicon-trash " title="Supprimer"
-           (click)="delete(chapitre.idCrs,i)" ></i>
+           (click)="delete(chapitre.idChap,i)" ></i>
       </ng-template>
 
     </p-column>

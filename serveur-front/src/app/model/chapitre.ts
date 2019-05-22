@@ -1,5 +1,5 @@
 export class Chapitre {
-  idChap?: number;
+  idChap?: any;
   nom?: string;
   description?: string;
 }
