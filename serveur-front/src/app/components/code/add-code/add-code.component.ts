@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {Code} from '../../../model/code';
-import {MessageService} from 'primeng/api';
-import {CodeService} from '../../../services/code.service';
-import {ActivatedRoute, Router} from '@angular/router';
-import {Candidat} from '../../../model/candidat';
-import {InscriptionService} from '../../../services/inscription.service';
-import {AuthentificationService} from '../../../services/authentification.service';
-import {Inscription} from '../../../model/inscription';
+import {Inscription} from "../../../model/inscription";
+import {Code} from "../../../model/code";
+import {MessageService} from "primeng/api";
+import {CodeService} from "../../../services/code.service";
+import {ActivatedRoute, Router} from "@angular/router";
+import {InscriptionService} from "../../../services/inscription.service";
+import {AuthentificationService} from "../../../services/authentification.service";
 
 @Component({
   selector: 'app-add-code',
@@ -14,6 +13,7 @@ import {Inscription} from '../../../model/inscription';
   styleUrls: ['./add-code.component.css']
 })
 export class AddCodeComponent implements OnInit {
+
   inscriptions: Inscription[];
   code: Code = new Code();
   btnVisible = true;
@@ -41,7 +41,7 @@ export class AddCodeComponent implements OnInit {
   }
   ajouter() {
 
-      this.codeService.save(this.code)
+    this.codeService.save(this.code)
       .subscribe( data => {
         this.router.navigate(['code']);
         this.messageService.add({severity: 'success', summary: 'Succes', detail: 'votre donnèe est bien enregistrer'});

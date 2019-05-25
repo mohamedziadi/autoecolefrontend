@@ -22,8 +22,6 @@ import {AddCandidatComponent} from './components/candidat/add-candidat/add-candi
 import {AddSecretaireComponent} from './components/secretaire/add-secretaire/add-secretaire.component';
 import {InscriptionComponent} from './components/inscription/inscription.component';
 import {AddInscriptionComponent} from './components/inscription/add-inscription/add-inscription.component';
-import {CodeComponent} from './components/code/code.component';
-import {AddCodeComponent} from './components/code/add-code/add-code.component';
 import {Conduite} from './model/conduite';
 import {AddConduiteComponent} from './components/conduite/add-conduite/add-conduite.component';
 import {ConduiteComponent} from './components/conduite/conduite.component';
@@ -33,6 +31,10 @@ import {EditEcoleComponent} from './components/edit-ecole/edit-ecole.component';
 import {NotificationComponent} from './components/notification/notification.component';
 import {AddOrUpdateChapitreComponent} from "./components/chapitre/add-or-update-chapitre/add--or-update-chapitre.component";
 import {ChapitreDetailsComponent} from "./components/chapitre/chapitre-details/chapitre-details.component";
+import {CandidatCodeComponent} from "./components/candidat-code/candidat-code.component";
+import {CandidatConduiteComponent} from "./components/candidat-conduite/candidat-conduite.component";
+import {CodeComponent} from "./components/code/code.component";
+import {AddCodeComponent} from "./components/code/add-code/add-code.component";
 
 
 
@@ -65,6 +67,8 @@ const routes: Routes = [
       {path: 'code/:param', component: AddCodeComponent},
       {path: 'conduite', component: ConduiteComponent},
       {path: 'conduite/:param', component: AddConduiteComponent},
+      {path: 'candidat-code', component: CandidatCodeComponent},
+      {path: 'candidat-conduite', component: CandidatConduiteComponent},
       {path: 'test', component: TestComponent},
       {path: 'test', component: NotificationComponent},
       {path: 'chapitreDetails', component: ChapitreDetailsComponent},

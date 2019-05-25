@@ -8,4 +8,5 @@ export class Seance {
   nbHoraire: string;
   nbSeanceAtteint: number;
   inscription: Inscription;
+  etat: string;
 }

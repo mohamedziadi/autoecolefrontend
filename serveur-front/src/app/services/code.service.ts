@@ -18,6 +18,18 @@ export class CodeService {
   public getAll(): Observable<Code[]> {
     return this.httpClient.get<Code[]>(this.url);
   }
+
+
+  public getByAutoEcole(id): Observable<Code[]> {
+    return this.httpClient.get<Code[]>(this.url+'/'+id );
+  }
+  public getByCandidat(cin): Observable<Code[]> {
+    return this.httpClient.get<Code[]>(this.url+'/candidat/'+cin );
+  }
+
+  public getByEtat(etat): Observable<Code[]> {
+    return this.httpClient.get<Code[]>(this.url+'/etat/'+etat );
+  }
   public save(code: Code) {
     return this.httpClient.post(this.url, code);
   }

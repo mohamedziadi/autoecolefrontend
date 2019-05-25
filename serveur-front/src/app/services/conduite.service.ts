@@ -3,6 +3,7 @@ import {Conduite} from '../model/conduite';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {Seance} from '../model/seance';
+import {Code} from "../model/code";
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,18 @@ export class ConduiteService {
   public getAll(): Observable<Conduite[]> {
     return this.httpClient.get<Conduite[]>(this.url);
   }
-  public delete(id: number): Observable<any> {
+
+  public getByAutoEcole(id): Observable<Conduite[]> {
+    return this.httpClient.get<Conduite[]>(this.url+'/'+id );
+  }
+  public getByCandidat(cin): Observable<Conduite[]> {
+    return this.httpClient.get<Conduite[]>(this.url+'/candidat/'+cin );
+  }
+
+  public getByEtat(etat): Observable<Conduite[]> {
+    return this.httpClient.get<Conduite[]>(this.url+'/etat/'+etat );
+  }
+  public delete(id: any): Observable<any> {
     return this.httpClient.delete<any>(this.url + '/' + id);
   }
 

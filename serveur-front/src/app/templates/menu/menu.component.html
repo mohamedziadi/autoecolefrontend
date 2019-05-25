@@ -88,6 +88,35 @@
       </li>
 
 
+
+
+
+
+
+
+      <li>
+        <a href="/candidat-code" *appAuthority="['ROLE_Secretaire','ROLE_Candidat']"><i class="fas fa-igloo"></i> <span class="nav-label">Confirmation</span></a>
+      </li>
+
+
+      <li>
+        <a href=""  *appAuthority="['ROLE_Candidat','ROLE_Secretaire']"><i class="fab fa-readme"></i> <span class="nav-label"> Planning</span>
+          <span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level collapse" aria-expanded="false">
+          <li><a routerLink="/candidat-code"  *appAuthority="['ROLE_Candidat','ROLE_Secretaire']">Code </a></li>
+          <li><a routerLink="/candidat-conduite"  *appAuthority="['ROLE_Candidat','ROLE_Secretaire']">Conduite </a></li>
+        </ul></li>
+
+      <li>
+        <a href="" *appAuthority="['ROLE_Candidat','ROLE_Secretaire']"> <i class="fab fa-readme"></i><span class="nav-label" > Date Examen</span>
+          <span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level collapse" aria-expanded="false">
+
+          <li><a routerLink="/candidat-codeEx" *appAuthority="['ROLE_Candidat','ROLE_Secretaire']">Code  </a></li>
+          <li><a routerLink="/candidat-conduiteEx" *appAuthority="['ROLE_Candidat','ROLE_Secretaire']">Conduite </a></li>
+        </ul>
+      </li>
+
     </ul>
   </div>
   </div></nav>

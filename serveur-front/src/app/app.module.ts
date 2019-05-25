@@ -56,11 +56,9 @@ import {PanelModule} from 'primeng/panel';
 import {MultiSelectModule} from 'primeng/multiselect';
 import { AddSecretaireComponent } from './components/secretaire/add-secretaire/add-secretaire.component';
 import { AddInscriptionComponent } from './components/inscription/add-inscription/add-inscription.component';
-import { CodeComponent } from './components/code/code.component';
 
 import { AddConduiteComponent } from './components/conduite/add-conduite/add-conduite.component';
 import { ConduiteComponent } from './components/conduite/conduite.component';
-import { AddCodeComponent } from './components/code/add-code/add-code.component';
 import { TestComponent } from './components/test/test.component';
 import { QuizComponent } from './components/quiz/quiz.component';
 import { environment } from '../environments/environment';
@@ -73,6 +71,12 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { DataTableModule } from 'primeng/primeng';
 import {CoursDetailsComponent} from "./components/cours/cours-details.component.ts/cours-details.component";
 import {ChapitreDetailsComponent} from "./components/chapitre/chapitre-details/chapitre-details.component";
+import {CandidatCodeComponent} from "./components/candidat-code/candidat-code.component";
+import {CandidatConduiteComponent} from "./components/candidat-conduite/candidat-conduite.component";
+import {CodeExComponent} from "./components/code-ex/code-ex.component";
+import {ConduiteExComponent} from "./components/conduite-ex/conduite-ex.component";
+import {CodeComponent} from "./components/code/code.component";
+import {AddCodeComponent} from "./components/code/add-code/add-code.component";
 
 
 
@@ -125,7 +129,12 @@ import {ChapitreDetailsComponent} from "./components/chapitre/chapitre-details/c
     QuizComponent,
     EditEcoleComponent,
     NotificationComponent,
-    ChapitreDetailsComponent
+    ChapitreDetailsComponent,
+    CandidatCodeComponent,
+    CandidatConduiteComponent,
+    CodeExComponent,
+    ConduiteExComponent,
+
 
   ],
   imports: [

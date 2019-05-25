@@ -1,0 +1,49 @@
+
+<table class="table table-striped">
+
+  <br><br><br>
+  <p-table [value]="list">
+    <ng-template pTemplate="header">
+      <tr>
+
+        <th style="text-align: center">date</th>
+        <th style="text-align: center"> place</th>
+        <th style="text-align: center"> prix</th>
+        <th style="text-align: center">  nbHoraire</th>
+        <th style="text-align: center"> nbSeanceAtteint</th>
+        <th style="text-align: center"> Etat</th>
+
+
+
+
+
+
+
+        <th style="text-align: center">Actions</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-code>
+      <tr>
+
+        <td>{{code.date}}</td>
+        <td>{{code.place}}</td>
+        <td>{{code.prix}}</td>
+        <td>{{code.nbHoraire}}</td>
+        <td>{{code. nbSeanceAtteint}}</td>
+        <td>{{code. etat}}</td>
+        <td>
+          <button pButton icon="pi pi-times" pTooltip="Annuler" tooltipPosition="top" class="ui-button-danger"
+                  (click)="annullEtat(code)" [disabled]="code.etat === 'En attente'? false: true"
+          ></button>
+
+          <button pButton icon="pi pi-check" pTooltip="Confirmer" tooltipPosition="top" class="ui-button-success" (click)="confirmEtat(code) "
+                  style="margin-left: 10px" [disabled]="code.etat === 'En attente'? false: true"></button></td>
+      </tr>
+
+
+    </ng-template>
+  </p-table>
+</table>
+
+
+
