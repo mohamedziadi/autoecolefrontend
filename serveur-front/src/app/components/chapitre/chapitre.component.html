@@ -1,11 +1,11 @@
-
+<div *ngIf="!chapdetails">
 <button pButton  class="ui-button-text ui-button-rounded" icon="pi pi-arrow-left" label="Retour" cornerStyleClass="right_top"  style="width:100px" (click)="returnView()"> </button>
 
 <button pButton  class="ui-button-text ui-button-rounded" icon="pi pi-arrow-right" label="Ajouter" cornerStyleClass="right_top"  style="width:100px" (click)="openAddChapitre()"> </button>
 
 <div class="pr small">
   <p-dataTable #table  [value]="chapitres" [scrollable]="true" [rows]="20" scrollHeight="200px" [virtualScroll]="true"
-               [lazy]="true" [totalRecords]="chapitres.length"  [emptyMessage]="'tableau vide'" >
+               [lazy]="true" [totalRecords]="chapitres.length"  [emptyMessage]="'tableau vide'" (onRowClick)="openChapDetails($event)" >
     <p-column [sortable]="false" header="">
       <ng-template let-chapitre="rowData" pTemplate="body">
         {{chapitre.nom}}
@@ -30,3 +30,7 @@
   </p-dataTable>
 </div>
 
+</div>
+<app-chapitre-details *ngIf="chapdetails" [chapitresDetail]="selectEntity">
+
+</app-chapitre-details>

@@ -72,6 +72,7 @@ import {AddOrUpdateCoursComponent} from "./components/cours/add-or-update-cours/
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { DataTableModule } from 'primeng/primeng';
 import {CoursDetailsComponent} from "./components/cours/cours-details.component.ts/cours-details.component";
+import {ChapitreDetailsComponent} from "./components/chapitre/chapitre-details/chapitre-details.component";
 
 
 
@@ -124,6 +125,7 @@ import {CoursDetailsComponent} from "./components/cours/cours-details.component.
     QuizComponent,
     EditEcoleComponent,
     NotificationComponent,
+    ChapitreDetailsComponent
 
   ],
   imports: [

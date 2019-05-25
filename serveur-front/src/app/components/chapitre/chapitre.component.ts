@@ -3,7 +3,7 @@ import {Chapitre} from "../../model/chapitre";
 import {AddOrUpdateCoursComponent} from "../cours/add-or-update-cours/add-or-update.component";
 import {Cours} from "../../model/cours";
 import {ConfirmationService} from "primeng/api";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {CoursService} from "../../services/cours.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {ChapitreService} from "../../services/chapitre.service";
@@ -17,7 +17,13 @@ import {AddOrUpdateChapitreComponent} from "./add-or-update-chapitre/add--or-upd
 export class ChapitreComponent implements OnInit {
 @Input() chapitres: Chapitre[] = [];
 @Input() idCrs:number;
-  constructor(private  chapitreService: ChapitreService,private coursService: CoursService, private confirmationService: ConfirmationService, private router: Router, private modalService: NgbModal) { }
+ public chapdetails:boolean = false;
+ public selectEntity: any;
+  constructor(private  chapitreService: ChapitreService
+              ,private coursService: CoursService,
+              private confirmationService: ConfirmationService,
+              private router: Router, private modalService: NgbModal,
+              protected activateRoute: ActivatedRoute) { }
 
   ngOnInit() {
   }
@@ -71,5 +77,11 @@ export class ChapitreComponent implements OnInit {
 
   public returnView(event: any) {
     this.router.navigate(['cours']);
+  }
+
+  public openChapDetails(event:any){
+   this.selectEntity = event.data.description;
+    this.chapdetails = true;
+   // this.router.navigate(['chapitreDetails']);
   }
 }

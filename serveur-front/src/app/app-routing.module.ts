@@ -32,6 +32,7 @@ import {TestComponent} from './components/test/test.component';
 import {EditEcoleComponent} from './components/edit-ecole/edit-ecole.component';
 import {NotificationComponent} from './components/notification/notification.component';
 import {AddOrUpdateChapitreComponent} from "./components/chapitre/add-or-update-chapitre/add--or-update-chapitre.component";
+import {ChapitreDetailsComponent} from "./components/chapitre/chapitre-details/chapitre-details.component";
 
 
 
@@ -65,7 +66,9 @@ const routes: Routes = [
       {path: 'conduite', component: ConduiteComponent},
       {path: 'conduite/:param', component: AddConduiteComponent},
       {path: 'test', component: TestComponent},
-      {path: 'test', component: NotificationComponent}
+      {path: 'test', component: NotificationComponent},
+      {path: 'chapitreDetails', component: ChapitreDetailsComponent},
+
     ]}
 
 ];
