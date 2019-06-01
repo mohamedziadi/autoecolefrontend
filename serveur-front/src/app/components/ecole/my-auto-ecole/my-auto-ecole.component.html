@@ -1,0 +1,40 @@
+<p-fieldset legend="Auto Ecole">
+  <div class="form-group">
+    <input type="text"
+           class="form-control" placeholder="Nom" required  [(ngModel)]="autoEcole.nom" #nomAuto="ngModel">
+  </div>
+
+  <div class="form-group">
+    <input type="text"
+           class="form-control" placeholder="Adresse" required  [(ngModel)]="autoEcole.adresse" #adresseAuto="ngModel">
+  </div>
+
+  <div class="form-group">
+    <input type="text"
+           class="form-control" placeholder="Téléphone" required  [(ngModel)]="autoEcole.telephone" #telAuto="ngModel">
+  </div>
+
+
+  <textarea pInputTextarea
+            class="form-control" placeholder="Horaire" required  [(ngModel)]="autoEcole.horaire" #horaireAuto="ngModel">
+             </textarea>
+
+  <br>
+
+  <div class="form-group">
+    <input type="text"
+           class="form-control" placeholder="Tarif Code" required  [(ngModel)]="autoEcole.tarifCode" #tarifCodeAuto="ngModel">
+  </div>
+  <div class="form-group">
+    <input type="text"
+           class="form-control" placeholder="Tarif Conduite" required  [(ngModel)]="autoEcole.tarifConduite" #tarifConduiteAuto="ngModel">
+  </div>
+
+</p-fieldset>
+
+
+<hr>
+
+
+<button class="btn btn-dark" (click)="modifier()"
+        [disabled]="nomAuto.invalid || adresseAuto.invalid || horaireAuto.invalid || tarifCodeAuto.invalid || tarifConduiteAuto.invalid ">changer mot de pass</button>

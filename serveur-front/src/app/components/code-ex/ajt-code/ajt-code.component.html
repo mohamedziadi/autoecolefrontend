@@ -1,0 +1,90 @@
+<p-fieldset legend=" Date d'Examen de Code">
+<div class="form-group row">
+  <label class="col-lg-2 col-form-label">Date</label>
+
+
+  <div class="col-lg-6">
+    <input class="form-control" type="time"  showTime="true" hourFormat="12" [(ngModel)]="codeEx.date" showButtonBar="true"   #date="ngModel"/>
+  </div>
+
+</div>
+
+
+<div class="form-group row">
+  <label class="col-lg-2 col-form-label">Numèro Convocation</label>
+
+  <div class="col-lg-6">
+    <input  class="form-control" type="text"  [(ngModel)]="codeEx.numConvocation"
+            #numConvocation="ngModel" required  placeholder=" Entrer Numèro Convocation"/>
+  </div>
+  <div class="col lg-4">
+    <p-message severity="error" [text]="numConvocation.errors['required'] ? 'Numèro Convocation réquis' :  ''"
+               *ngIf="numConvocation.invalid&&(numConvocation.dirty || numConvocation.touched)"></p-message>
+  </div>
+</div>
+
+
+<div class="form-group row">
+  <label class="col-lg-2 col-form-label"> Endroit</label>
+
+  <div class="col-lg-6">
+    <input  class="form-control" type="text" nbHoraire [(ngModel)]="codeEx.centreExamen"
+            #centreExamen="ngModel" required  placeholder=" Entrer Endroit"/>
+  </div>
+  <div class="col lg-4">
+    <p-message severity="error" [text]="centreExamen.errors['required'] ? 'Endroit réquis' : ''"
+               *ngIf="centreExamen.invalid&&(centreExamen.dirty || centreExamen.touched)"></p-message>
+  </div></div>
+
+<div class="form-group row">
+  <label class="col-lg-2 col-form-label">Tarif</label>
+
+  <div class="col-lg-6">
+    <input  class="form-control" type="text" [(ngModel)]="codeEx.fraisInscription"
+            #fraisInscription="ngModel" required  placeholder=" Entrer Tarif"/>
+  </div>
+  <div class="col lg-4">
+    <p-message severity="error" [text]="fraisInscription.errors['required'] ? 'TarIf réquis' : ''"
+               *ngIf="fraisInscription.invalid&&(fraisInscription.dirty || fraisInscription.touched)"></p-message>
+  </div></div>
+
+
+
+<div class="form-group row">
+  <label class="col-lg-2 col-form-label">Rèsultat</label>
+
+  <div class="col-lg-6">
+    <input  class="form-control" type="text" [(ngModel)]="codeEx.resultat"
+            #resultat="ngModel" required  placeholder=" Entrer Rèsultat"/>
+  </div>
+  <div class="col lg-4">
+    <p-message severity="error" [text]="resultat.errors['required'] ? 'Rèsultat réquis' :  ''"
+               *ngIf="resultat.invalid&&(resultat.dirty || resultat.touched)"></p-message>
+  </div>
+</div>
+
+<div class="form-group row">
+  <label class="col-lg-2 col-form-label">Choisit Candidat</label>
+
+  <div class="col-lg-6">
+
+    <select   class="form-control" [(ngModel)]="codeEx.inscription" >
+      <option [(ngValue)]="insc" *ngFor="let insc of inscriptions"> {{insc.candidat.nom}} {{insc.candidat.prenom}}</option>
+
+    </select>
+
+
+    <div class="form-group row">
+      <div class="col-lg-1">
+        <div class="ui-grid-col-9"><br>
+          <button class="btn btn-dark" *ngIf="btnVisible"  (click)="ajouter()"
+                  [disabled]="date.invalid  ||numConvocation.invalid || centreExamen.invalid || fraisInscription.invalid ||resultat.invalid "><i class="fa fa-database"></i>Sauvgarder</button>
+
+        </div></div></div>
+
+    <button *ngIf="!btnVisible" class="ui-button-warning " pButton label="Modifier" (click)="modifier()"
+            [disabled]="date.invalid  ||numConvocation.invalid || centreExamen.invalid || fraisInscription.invalid || resultat.invalid "></button>
+  </div></div>
+
+
+</p-fieldset>

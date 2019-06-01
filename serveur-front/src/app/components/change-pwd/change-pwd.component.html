@@ -1,0 +1,48 @@
+<p-fieldset legend="Changer Votre mot de Passe">
+<div class="form-group row">
+
+  <label class="col-lg-2 col-form-label">Mot de pass actuel</label>
+  <div class="col-lg-8">
+
+    <input type="password"
+           class="form-control" placeholder="Mot de passe actuel" required  [(ngModel)]="pwd.oldPassword" #old="ngModel">
+  </div>
+  <div class="col-lg-4">
+    <p-message severity="error" *ngIf="old.invalid && (old.dirty || old.touched)" [text]="old.errors['required']? 'Mot de passe actuel réquis' :''"></p-message>
+  </div>
+</div>
+
+
+
+<div class="form-group row">
+  <label class="col-lg-2 col-form-label">Nouveau Mot de passe</label>
+  <div class="col-lg-8">
+    <input type="password"
+           class="form-control" placeholder="Nouveau de passe" required  [(ngModel)]="pwd.newPassword" #new="ngModel">
+  </div>
+  <div class="col-lg-4">
+    <p-message severity="error" *ngIf="new.invalid && (new.dirty || new.touched)" [text]="new.errors['required']? 'Nouveau Mot de passe  réquis' :''"></p-message>
+  </div>
+</div>
+
+
+<div class="form-group row">
+  <label class="col-lg-2 col-form-label">Confirm Mot de passe</label>
+  <div class="col-lg-8">
+    <input type="password" pattern="{{new.value}}"
+           class="form-control" placeholder="Confirm nouveau de passe" required  [(ngModel)]="pwd.confirmPassword" #confirm="ngModel">
+  </div>
+  <div class="col-lg-4">
+    <p-message severity="error" *ngIf="confirm.invalid && (confirm.dirty || confirm.touched)" [text]="confirm.errors['required']? ' Confirm Mot de passe  réquis' :confirm.errors['pattern']? 'Les mots de passe ne sont pas identiques':''"></p-message>
+  </div>
+</div>
+
+
+<hr>
+
+<hr>
+
+<button class="ui-button-dark " pButton label="Changer mot de passe" (click)="changePwd()"
+        [disabled]="old.invalid || new.invalid || confirm.invalid"></button>
+
+</p-fieldset>

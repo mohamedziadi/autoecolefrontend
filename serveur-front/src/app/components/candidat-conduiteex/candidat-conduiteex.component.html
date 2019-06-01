@@ -1,0 +1,46 @@
+<table class="table table-striped">
+
+  <br><br><br>
+  <p-table [value]="list">
+    <ng-template pTemplate="header">
+      <tr>
+
+        <th style="text-align: center">Date</th>
+        <th style="text-align: center"> Numèro Convocation</th>
+        <th style="text-align: center">Centre d'Examen</th>
+        <th style="text-align: center"> Frais Inscription</th>
+        <th style="text-align: center">Rèsultat</th>
+        <th style="text-align: center">Date d'envoi</th>
+        <th style="text-align: center">Etat</th>
+        <th style="text-align: center">Actions</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-conduiteEx>
+      <tr>
+
+        <td>{{conduiteEx.date}}</td>
+        <td>{{conduiteEx.numConvocation}}</td>
+        <td>{{conduiteEx.centreExamen}}</td>
+        <td>{{conduiteEx.fraisInscription}}</td>
+        <td>{{conduiteEx.resultat}}</td>
+
+        <td>{{conduiteEx. createdAt}}</td>
+        <td>{{conduiteEx. etat}}</td>
+        <td>
+          <button pButton icon="pi pi-times" pTooltip="Annuler" tooltipPosition="top" class="ui-button-danger"
+                  (click)="annullEtat(conduiteEx)"
+          ></button>
+          <!--[disabled]="code.etat === 'En attente'? false: true"-->
+
+          <button pButton icon="pi pi-check" pTooltip="Confirmer" tooltipPosition="top" class="ui-button-success" (click)="confirmEtat(conduiteEx) "
+                  style="margin-left: 10px" ></button>
+          <!--[disabled]="code.etat === 'En attente'? false: true"></button></td> -->
+      </tr>
+
+
+    </ng-template>
+  </p-table>
+</table>
+
+
+
