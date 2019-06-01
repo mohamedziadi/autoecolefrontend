@@ -6,19 +6,12 @@
     <ng-template pTemplate="header">
       <tr>
 
-        <th style="text-align: center">date</th>
-        <th style="text-align: center"> place</th>
-        <th style="text-align: center"> prix</th>
-        <th style="text-align: center">  nbHoraire</th>
-        <th style="text-align: center"> nbSeanceAtteint</th>
+        <th style="text-align: center">Date</th>
+        <th style="text-align: center"> Endroit</th>
+        <th style="text-align: center">Tarif</th>
+        <th style="text-align: center">Volume Horaire</th>
+        <th style="text-align: center"> Date d'envoi</th>
         <th style="text-align: center"> Etat</th>
-
-
-
-
-
-
-
         <th style="text-align: center">Actions</th>
       </tr>
     </ng-template>
@@ -29,7 +22,7 @@
         <td>{{conduite.place}}</td>
         <td>{{conduite.prix}}</td>
         <td>{{conduite.nbHoraire}}</td>
-        <td>{{conduite. nbSeanceAtteint}}</td>
+        <td>{{conduite.createdAt}}</td>
         <td>{{conduite. etat}}</td>
         <td>
           <button pButton icon="pi pi-times" pTooltip="Annuler" tooltipPosition="top" class="ui-button-danger"

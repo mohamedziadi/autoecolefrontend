@@ -9,6 +9,7 @@ import {AuthentificationService} from './services/authentification.service';
 
 export class AppComponent {
   title = 'serveur-front';
+
 constructor() {}
 
 }

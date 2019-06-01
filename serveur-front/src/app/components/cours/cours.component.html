@@ -1,9 +1,10 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <div *ngIf="!isDetail">
 <button pButton  class="ui-button-text ui-button-rounded" icon="pi pi-arrow-right" label="Ajouter" cornerStyleClass="right_top"  style="width:100px" (click)="openAddCours()"> </button>
 
 
 <div class="pr small">
-    <p-dataTable #table  [value]="list" [scrollable]="true" [rows]="20" scrollHeight="200px" [virtualScroll]="true" (onLazyLoad)="loadDataOnScroll($event)"
+    <p-dataTable #table  [value]="list"  [rows]="20" scrollHeight="200px"
                  [lazy]="true" [totalRecords]="list.length"  [emptyMessage]="'tableau vide'" (onRowClick)="loadChapters($event)">
       <p-column [sortable]="false" header="">
         <ng-template let-cours="rowData" pTemplate="body">
@@ -18,10 +19,15 @@
       <p-column [sortable]="false" header=""
                 cssClass="action-btn">
         <ng-template let-cours="rowData" let-i="rowIndex" pTemplate="body">
-          <span><i class="glyphicon glyphicon-pencil " title="Edit"
-             (click)="update(cours,i)" ></i></span>
-          <i class="glyphicon glyphicon-trash " title="Supprimer"
-             (click)="delete(cours.idCrs,i)" ></i>
+        <!--  <span><i class="glyphicon glyphicon-pencil " title="Edit"
+             (click)="update(cours,i)" ></i></span> -->
+          <button pButton icon="pi pi-pencil" pTooltip="Editer" tooltipPosition="top" class="ui-button-warning"   (click)="update(cours,i)"
+                  style="margin-left: 10px"></button>
+          <button pButton icon="pi pi-trash" pTooltip="Supprimer"  tooltipPosition="top"  class="ui-button-danger" (click)="delete(cours.idCrs,i) "
+          ></button>
+
+          <!-- <i class="glyphicon glyphicon-trash " title="Supprimer"
+             (click)="delete(cours.idCrs,i)" ></i> -->
         </ng-template>
 
       </p-column>

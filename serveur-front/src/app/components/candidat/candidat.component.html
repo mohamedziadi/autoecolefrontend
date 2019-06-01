@@ -1,5 +1,5 @@
-<!--<button pButton label="Ajouter" icon="pi pi-plus" style="float: right" class="ui-button-success"
-        (click)="addCandidat()" ></button>-->
+<button pButton label="Ajouter" icon="pi pi-plus" style="float: right" class="ui-button-success"
+        (click)="addCandidat()" ></button>
 <br><br><br>
 <p-table [value]="list">
   <ng-template pTemplate="header">
@@ -24,8 +24,8 @@
       <td>
         <button pButton icon="pi pi-trash" pTooltip="Supprimer" style="margin-center: 40px"  tooltipPosition="top" class="ui-button-danger" (click)="delete(candidat) "
         ></button>
-       <!-- <button pButton icon="pi pi-pencil" pTooltip="Editer" tooltipPosition="top" class="ui-button-warning" (click)="edit(candidat) "
-                style="margin-left: 10px"></button> -->
+    <button pButton icon="pi pi-pencil" pTooltip="Editer" tooltipPosition="top" class="ui-button-warning" (click)="edit(candidat) "
+                style="margin-left: 10px"></button> 
 
       </td>
     </tr>

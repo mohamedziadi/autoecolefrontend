@@ -62,6 +62,8 @@
         <div class="autoEcole-detail">{{autoEcole.nom}} - {{autoEcole.adresse}} </div>
         <hr class="ui-widget-content" style="border-top:0">
         <button pButton type="button" icon="pi pi-search" (click)="selectEcole($event, autoEcole)" style="margin-top:0"></button>
+        <button pButton icon="pi pi-pencil" pTooltip="Editer" tooltipPosition="top" class="ui-button-warning" (click)="modifier(autoEcole) "
+                style="margin-left: 10px"></button>
       </p-panel>
     </div>
   </ng-template>

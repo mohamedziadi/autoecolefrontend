@@ -3,12 +3,13 @@ import {CodeEx} from "../model/code-ex";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class CodeExService {
 
-  private url = 'http://localhost:8989/code';
+  private url = 'http://localhost:8989/codeEx';
   public codeEx: CodeEx = new CodeEx();
 
   constructor(private httpClient: HttpClient) {

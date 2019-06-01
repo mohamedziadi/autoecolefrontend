@@ -19,13 +19,13 @@ export class SecretaireService {
   }
 
   public save(secretaire: Secretaire): Observable<any> {
-    return this.httpClient.post<any>(this.url, secretaire);
+    return this.httpClient.post<Secretaire[]>(this.url, secretaire);
   }
   public update(secretaire: Secretaire): Observable<any> {
-    return this.httpClient.put<any>(this.url, secretaire);
+    return this.httpClient.put<Secretaire[]>(this.url, secretaire);
 
   }
   public delete(cin: string): Observable<any> {
-    return this.httpClient.delete<any>(this.url + '/' + cin);
+    return this.httpClient.delete<Secretaire[]>(this.url + '/' + cin);
   }
 }

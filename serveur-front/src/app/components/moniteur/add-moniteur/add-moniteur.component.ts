@@ -26,26 +26,26 @@ export class AddMoniteurComponent implements OnInit {
   ngOnInit() {
     const action = this.route.snapshot.paramMap.get('param');
     if (action === 'edit') {
-    //  this.moniteur = this.moniteurService.moniteur;
+      this.moniteur = this.moniteurService.moniteur;
       this.btnVisible = false;
     }
   }
   ajouter() {
 
-      this.authenticationService.getUser().subscribe( res => {
-        this.moniteur.autoEcole =   res.autoEcole;
-        this.moniteurService.save(this.moniteur)
-          .subscribe( data => {
-            if (data.success) {
-              this.messageService.add({severity: 'success', summary: data.message});
-              this.router.navigate(['moniteur']);
-            } else {
-              this.messageService.add({severity: 'warn', summary: 'Attention' , detail: data.message});
-            }
-          }, ex => {
-            this.messageService.add({severity: 'error', summary: 'Erreur' , detail: 'Opération non effectuée'});
-            console.log(ex);
-          });
+    this.authenticationService.getUser().subscribe( res => {
+      this.moniteur.autoEcole =   res.autoEcole;
+      this.moniteurService.save(this.moniteur)
+        .subscribe( data => {
+          if (data.success) {
+            this.messageService.add({severity: 'success', summary: data.message});
+            this.router.navigate(['moniteur']);
+          } else {
+            this.messageService.add({severity: 'warn', summary: 'Attention' , detail: data.message});
+          }
+        }, ex => {
+          this.messageService.add({severity: 'error', summary: 'Erreur' , detail: 'Opération non effectuée'});
+          console.log(ex);
+        });
     }, ex => {
       console.log(ex);
     });

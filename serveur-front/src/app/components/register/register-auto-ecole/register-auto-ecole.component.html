@@ -5,7 +5,7 @@
   <div>
 
 
-    <p>Create account to see it in action.</p>
+    <p>Créer Votre Compte!.</p>
 
 
     <div class="m-t"  >
@@ -72,49 +72,128 @@
       <br><br>
 
       <p-fieldset legend="Auto Ecole">
-        <div class="form-group">
+    <!--     <div class="form-group">
           <input type="text"
                  class="form-control" placeholder="Nom" required  [(ngModel)]="autoEcole.nom" #nomAuto="ngModel">
+        </div> -->
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="nom" required    [(ngModel)]="autoEcole.nom" #nomAuto="ngModel">
+        </div>
+        <div class="col lg-4">
+          <p-message severity="error" [text]="nomAuto.errors['required'] ? 'Nom réquis' :  ''"
+                     *ngIf="nomAuto.invalid&&(nomAuto.dirty || nomAuto.touched)"></p-message>
         </div>
 
-        <div class="form-group">
+
+
+
+   <!--     <div class="form-group">
           <input type="text"
                  class="form-control" placeholder="Adresse" required  [(ngModel)]="autoEcole.adresse" #adresseAuto="ngModel">
-        </div>
+        </div> -->
+
+
 
         <div class="form-group">
-          <input type="text"
-                 class="form-control" placeholder="Téléphone" required  [(ngModel)]="autoEcole.telephone" #telAuto="ngModel">
+          <input type="text" class="form-control" placeholder="adresse" required [(ngModel)]="autoEcole.adresse" #adresseAuto="ngModel">
         </div>
-        <div class="form-group">
-          <textarea pInputTextarea
-                 class="form-control" placeholder="Horaire" required  [(ngModel)]="autoEcole.horaire" #horaireAuto="ngModel">
-          </textarea>
+        <div class="col lg-4">
+          <p-message severity="error" [text]="adresseAuto.errors['required'] ? 'Adresse réquis' :  ''"
+                     *ngIf="adresseAuto.invalid&&(adresseAuto.dirty || adresseAuto.touched)"></p-message>
         </div>
+
+
+
+        <!--  <div class="form-group">
+            <input type="text"
+                   class="form-control" placeholder="Téléphone" required  [(ngModel)]="autoEcole.telephone" #telAuto="ngModel">
+          </div> -->
+
+
         <div class="form-group">
+          <input type="text" pKeyFilter="pint" maxlength="8" minlength="8" class="form-control" placeholder="telephone" required   [(ngModel)]="autoEcole.telephone" #telAuto="ngModel">
+        </div>
+        <div class="col lg-4">
+          <p-message severity="error" [text]="telAuto.errors['required'] ? 'Téléphone réquis' : telAuto.errors['minlength'] ? 'doit etre 8 chiffres' : ''"
+                     *ngIf="telAuto.invalid&&(telAuto.dirty || telAuto.touched)"></p-message>
+        </div>
+
+
+
+      <!--    <textarea pInputTextarea
+                    class="form-control" placeholder="Horaire" required  [(ngModel)]="autoEcole.horaire" #horaireAuto="ngModel">
+             </textarea> -->
+
+
+
+      <!--  <div class="form-group">
+          <input type="text" class="form-control" placeholder="nom" required [(ngModel)]="autoEcole.horaire" #horaireAuto="ngModel">
+        </div> -->
+
+     <!--   <div class="col lg-4">
+          <p-message severity="error" [text]="horaireAuto.errors['required'] ? 'Nom réquis' :  ''"
+                     *ngIf="horaireAuto.invalid&&(horaireAuto.dirty || horaireAuto.touched)"></p-message>
+        </div> -->
+
+
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Horaire" required [(ngModel)]="autoEcole.horaire" #horaireAuto="ngModel">
+        </div>
+        <div class="col lg-4">
+          <p-message severity="error" [text]="horaireAuto.errors['required'] ? 'Horaireréquis' :  ''"
+                     *ngIf="horaireAuto.invalid&&(horaireAuto.dirty || horaireAuto.touched)"></p-message>
+        </div>
+
+
+        <br>
+
+     <!--   <div class="form-group">
           <input type="text"
                  class="form-control" placeholder="Tarif Code" required  [(ngModel)]="autoEcole.tarifCode" #tarifCodeAuto="ngModel">
-        </div>
+        </div> -->
+
+
+
         <div class="form-group">
+          <input type="text" class="form-control" placeholder="Tarif Code" required  [(ngModel)]="autoEcole.tarifCode" #tarifCodeAuto="ngModel">
+        </div>
+        <div class="col lg-4">
+          <p-message severity="error" [text]="tarifCodeAuto.errors['required'] ? 'Tarif Code' :  ''"
+                     *ngIf="tarifCodeAuto.invalid&&(tarifCodeAuto.dirty || tarifCodeAuto.touched)"></p-message>
+        </div>
+
+
+
+
+
+     <!--   <div class="form-group">
           <input type="text"
                  class="form-control" placeholder="Tarif Conduite" required  [(ngModel)]="autoEcole.tarifConduite" #tarifConduiteAuto="ngModel">
+        </div> -->
+
+
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="tarif Conduite" required [(ngModel)]="autoEcole.tarifConduite" #tarifConduiteAuto="ngModel">
         </div>
+        <div class="col lg-4">
+          <p-message severity="error" [text]="tarifConduiteAuto.errors['required'] ? 'Tarif Conduite réquis' :  ''"
+                     *ngIf="tarifConduiteAuto.invalid&&(tarifConduiteAuto.dirty || tarifConduiteAuto.touched)"></p-message>
+        </div>
+
 
       </p-fieldset>
 
     <div class="form-group">
-        <div class="checkbox i-checks"><label> <div class="icheckbox_square-green" style="position: relative;"><input type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div><i></i> Agree the terms and policy </label></div>
+        <div class="checkbox i-checks"><label> <div class="icheckbox_square-green" style="position: relative;"><input type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div><i></i> **Tous les champs sont Obligatoires </label></div>
       </div>
-      <button (click)="register()"  class="btn btn-primary block full-width m-b">S'inscrit</button>
+      <button (click)="register()"  class="btn btn-danger block full-width m-b">S'inscrit</button>
 
-      <p class="text-muted text-center"><small>Already have an account?</small></p>
-      <a class="btn btn-sm btn-white btn-block" href="/login">Login</a>
-    </div>
-    <p class="m-t"> <small>Inspinia we app framework base on Bootstrap 3 © 2014</small> </p>
-  </div>
+      <p class="text-muted text-center"><small>Vous avez déja un compte?</small></p>
+      <a class="btn btn-sm btn-dark btn-block" href="/login">Login</a>
+
 </div>
 
 
 <p-toast></p-toast>
 
-</body>
+  </div></div></body>

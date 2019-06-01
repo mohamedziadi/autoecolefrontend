@@ -1,14 +1,17 @@
+import {Inscription} from "./inscription";
+
 export class Examen {
 
   id: number;
-  categorie: string;
+  date: Date;
    numConvocation: number;
   centreExamen: string;
   fraisInscription: number;
   resultat: string;
+  etat: string;
   type: string;
-  date: Date;
   createdAt: Date;
   updatedAt: Date;
+  inscription: Inscription;
 
 }

@@ -29,28 +29,41 @@ export class EcoleComponent implements OnInit {
   private displayDialog: boolean;
   private auto: AutoEcole;
 
-constructor(private autoService: AutoEcoleService, private confirmationService: ConfirmationService,
-            private messageService: MessageService, private authenticationService: AuthentificationService, private router: Router,
-            private inscriptionService: InscriptionService, private confirmService: ConfirmationService) {}
+  constructor(private autoService: AutoEcoleService, private confirmationService: ConfirmationService,
+              private messageService: MessageService, private authenticationService: AuthentificationService, private router: Router,
+              private inscriptionService: InscriptionService, private confirmService: ConfirmationService) {
+  }
 
 
-ngOnInit() {
+  ngOnInit() {
     this.autoService.getAll().subscribe(data => {
       this.list = data;
       this.sortOptions = [
-      {label: 'Newest First', value: '!nom'},
-      {label: 'Oldest First', value: 'nom'},
-      {label: 'adresse', value: 'adresse'}
-    ];
-  });
+        {label: 'le plus recent', value: '!nom'},
+        {label: 'le plus ancien', value: 'nom'},
+        {label: 'adresse', value: 'adresse'}
+      ];
+    });
+    {
+    /*  this.authenticationService.getUser().subscribe( res => {
+
+        this.autoService.getByGerant(res.cin).subscribe(data => {
+          this.list = data;
+        });
+      }, ex => {
+        console.log(ex);
+      });*/
+    }
+
   }
-selectEcole(event: Event, autoEcole: AutoEcole) {
+
+  selectEcole(event: Event, autoEcole: AutoEcole) {
     this.selectedEcole = autoEcole;
     this.displayDialog = true;
     event.preventDefault();
   }
 
-onSortChange(event) {
+  onSortChange(event) {
     const value = event.value;
 
     if (value.indexOf('!') === 0) {
@@ -61,45 +74,47 @@ onSortChange(event) {
       this.sortField = value;
     }
   }
-onDialogHide() {
+
+  onDialogHide() {
     this.selectedEcole = null;
   }
 
-inscrir(autoEcole) {
-  this.confirmationService.confirm({
-    message: 'Vous etes sur de votre inscription?',
-    accept: () => {
-      this.authenticationService.getUser().subscribe(res => {
-        const inscription = new Inscription();
-        inscription.autoEcole = autoEcole;
-        inscription.candidat = res;
-        this.inscriptionService.save(inscription).subscribe(result => {
+  inscrir(autoEcole) {
+    this.confirmationService.confirm({
+      message: 'Vous etes sur de votre inscription?',
+      accept: () => {
+        this.authenticationService.getUser().subscribe(res => {
+          const inscription = new Inscription();
+          inscription.autoEcole = autoEcole;
+          inscription.candidat = res;
+          this.inscriptionService.save(inscription).subscribe(result => {
 
-          if (result.success) {
-            this.messageService.add({severity: 'success', summary: result.message});
-            this.router.navigate(['moniteur']);
-          } else {
-            this.messageService.add({severity: 'warn', summary: 'Attention', detail: result.message});
-          }
+            if (result.success) {
+              this.messageService.add({severity: 'success', summary: result.message});
+              this.router.navigate(['moniteur']);
+            } else {
+              this.messageService.add({severity: 'warn', summary: 'Attention', detail: result.message});
+            }
+          }, ex => {
+            this.messageService.add({severity: 'error', summary: 'Erreur', detail: 'Opération non effectuée'});
+            console.log(ex);
+          });
         }, ex => {
-          this.messageService.add({severity: 'error', summary: 'Erreur', detail: 'Opération non effectuée'});
           console.log(ex);
         });
-      }, ex => {
-        console.log(ex);
-      });
-    }
-  });
-}
-  modifier() {
-    this.autoService.update(this.auto)
-      .subscribe( data => {
-        this.router.navigate(['auto']);
-        this.messageService.add({severity: 'success', summary: 'Succes', detail: 'votre donnèe est bien enregistrer'});
-      });
+      }
+    });
+  }
+
+  private edit(auto: AutoEcole) {
+    this.autoService.auto = auto;
+    this.router.navigate(['ecole', 'edit']);
   }
 
 
 }
+
+
+
 
 

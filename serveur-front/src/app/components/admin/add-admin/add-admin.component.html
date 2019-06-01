@@ -1,3 +1,4 @@
+<p-fieldset legend="Insèrer Admin">
 <div class="form-group row">
   <label class="col-lg-2 col-form-label">Cin</label>
 
@@ -106,3 +107,4 @@
 
 <button *ngIf="!btnVisible" class="ui-button-warning btn-block" pButton label="Modifier" (click)="modifier()"
         [disabled]="cin.invalid || nom.invalid || prenom.invalid || email.invalid || username.invalid || tel.invalid "></button>
+</p-fieldset>

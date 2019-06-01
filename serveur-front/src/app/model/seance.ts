@@ -6,7 +6,7 @@ export class Seance {
   place: string;
   prix: string;
   nbHoraire: string;
-  nbSeanceAtteint: number;
+
   inscription: Inscription;
   etat: string;
 }

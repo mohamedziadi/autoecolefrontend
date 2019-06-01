@@ -4,6 +4,8 @@ import {ConduiteService} from '../../services/conduite.service';
 import {ConfirmationService} from 'primeng/api';
 import {Router} from '@angular/router';
 
+import {AuthentificationService} from "../../services/authentification.service";
+
 @Component({
   selector: 'app-conduite',
   templateUrl: './conduite.component.html',
@@ -11,16 +13,25 @@ import {Router} from '@angular/router';
 })
 export class ConduiteComponent implements OnInit {
   private list: Conduite[];
-  constructor(private  conduiteService: ConduiteService, private confirmationService: ConfirmationService, private router: Router) { }
+
+  constructor(private  conduiteService: ConduiteService, private confirmationService: ConfirmationService,
+              private router: Router,  private authenticationService: AuthentificationService) { }
 
   ngOnInit() {
-    this.conduiteService.getAll().subscribe(data => {
-      this.list = data;
+    this.authenticationService.getUser().subscribe( res => {
+      this.conduiteService.getByAutoEcole(res.autoEcole.id).subscribe(data => {
+        this.list = data;
+      });
+
+    }, ex => {
+      console.log(ex);
     });
+
+
   }
 
 
- delete(conduite: Conduite): void {
+  delete(conduite: Conduite)  {
     this.confirmationService.confirm({
       message: 'Veuillez-vous supprimer cet enregistement?',
       accept: () => {
@@ -30,11 +41,15 @@ export class ConduiteComponent implements OnInit {
       },
     });
   }
-  addConduite(): void {
+  addConduite()  {
     this.router.navigate(['conduite', 'new']);
   }
-  private  edit(conduite: Conduite) {
+  edit(conduite: Conduite) {
     this.conduiteService.conduite = conduite;
     this.router.navigate(['conduite', 'edit']);
   }
+
+
+
+
 }

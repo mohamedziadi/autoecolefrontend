@@ -20,4 +20,7 @@ export class MenuComponent implements OnInit {
     this.role = this.authenticationService.getRoles();
   }
 
+  logout() {
+    this.authenticationService.logout();
+  }
 }

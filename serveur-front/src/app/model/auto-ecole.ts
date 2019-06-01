@@ -6,5 +6,6 @@ export class AutoEcole {
   telephone: number;
   tarifCode: string;
   tarifConduite: string;
+
 }
 

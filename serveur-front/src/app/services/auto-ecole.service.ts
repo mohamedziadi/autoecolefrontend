@@ -3,6 +3,8 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
 import {AutoEcole} from '../model/auto-ecole';
+import {Code} from "../model/code";
+import {Gerant} from "../model/gerant";
 
 
 
@@ -12,6 +14,7 @@ import {AutoEcole} from '../model/auto-ecole';
 export class AutoEcoleService {
   private url = 'http://localhost:8989/auto';
   public auto: AutoEcole = new AutoEcole();
+  public  gerant: Gerant = new Gerant();
 
   constructor(private httpClient: HttpClient) {
   }
@@ -24,6 +27,9 @@ export class AutoEcoleService {
   }
   public update(auto: AutoEcole): Observable<any> {
     return this.httpClient.put<any>(this.url, auto);
+  }
+  public getByGerant(gerant): Observable<Gerant[]> {
+    return this.httpClient.get<Gerant[]>(this.url+'/gerant/'+gerant );
   }
 }
 

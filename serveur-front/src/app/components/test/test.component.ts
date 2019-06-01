@@ -16,6 +16,7 @@ export class TestComponent implements OnInit {
   quizlist: Quizmodel[] = [
     {
       ID: 1, language: 'java', question: 'Inventor of c++?', anslistobj: ['Pavan.c', 'James Gosling', 'Richie Richie', 'Amos.Emmanual'], answer: 'Richie Richie'
+
     },
     {
       ID: 2, language: 'java', question: 'Inventor of java?', anslistobj: ['Nayan.c', 'Ärmesh', 'Denish Richie', 'Kiran.DY'], answer: 'Denish Richie'

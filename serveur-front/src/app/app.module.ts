@@ -19,7 +19,7 @@ import {
   InputTextModule,
   KeyFilterModule,
   MessageModule,
-  MessageService, MessagesModule, ScheduleModule,
+  MessageService, MessagesModule, ScheduleModule, SharedModule,
   TooltipModule,
 } from 'primeng/primeng';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -63,8 +63,6 @@ import { TestComponent } from './components/test/test.component';
 import { QuizComponent } from './components/quiz/quiz.component';
 import { environment } from '../environments/environment';
 import {ServiceWorkerModule} from '@angular/service-worker';
-import { EditEcoleComponent } from './components/edit-ecole/edit-ecole.component';
-import {NotificationComponent} from './components/notification/notification.component';
 import {FullCalendarModule} from 'primeng/fullcalendar';
 import {AddOrUpdateCoursComponent} from "./components/cours/add-or-update-cours/add-or-update.component";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
@@ -73,10 +71,21 @@ import {CoursDetailsComponent} from "./components/cours/cours-details.component.
 import {ChapitreDetailsComponent} from "./components/chapitre/chapitre-details/chapitre-details.component";
 import {CandidatCodeComponent} from "./components/candidat-code/candidat-code.component";
 import {CandidatConduiteComponent} from "./components/candidat-conduite/candidat-conduite.component";
-import {CodeExComponent} from "./components/code-ex/code-ex.component";
-import {ConduiteExComponent} from "./components/conduite-ex/conduite-ex.component";
+
 import {CodeComponent} from "./components/code/code.component";
 import {AddCodeComponent} from "./components/code/add-code/add-code.component";
+
+import {EditorModule} from 'primeng/editor';
+import { CodeExComponent } from './components/code-ex/code-ex.component';
+
+import { CandidatCodeexComponent } from './components/candidat-codeex/candidat-codeex.component';
+import { AjtCodeComponent } from './components/code-ex/ajt-code/ajt-code.component';
+import { ConduiteExComponent } from './components/conduite-ex/conduite-ex.component';
+import { AjtConduiteComponent } from './components/conduite-ex/ajt-conduite/ajt-conduite.component';
+import { CandidatConduiteexComponent } from './components/candidat-conduiteex/candidat-conduiteex.component';
+import { AddEcoleComponent } from './components/add-ecole/add-ecole.component';
+import { ChangePwdComponent } from './components/change-pwd/change-pwd.component';
+import { MyAutoEcoleComponent } from './components/ecole/my-auto-ecole/my-auto-ecole.component';
 
 
 
@@ -127,13 +136,23 @@ import {AddCodeComponent} from "./components/code/add-code/add-code.component";
     AddCodeComponent,
     TestComponent,
     QuizComponent,
-    EditEcoleComponent,
-    NotificationComponent,
+
     ChapitreDetailsComponent,
     CandidatCodeComponent,
     CandidatConduiteComponent,
     CodeExComponent,
+    CandidatCodeexComponent,
+    AjtCodeComponent,
     ConduiteExComponent,
+    AjtConduiteComponent,
+    CandidatConduiteexComponent,
+    AddEcoleComponent,
+    ChangePwdComponent,
+    MyAutoEcoleComponent,
+
+
+
+
 
 
   ],
@@ -166,7 +185,9 @@ import {AddCodeComponent} from "./components/code/add-code/add-code.component";
     ScheduleModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
      ServiceWorkerModule,
-    DataTableModule
+    DataTableModule,
+    EditorModule,
+    SharedModule
 
   ],
   providers: [ConfirmationService , MessageService,

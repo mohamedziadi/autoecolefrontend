@@ -7,7 +7,7 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class ConduiteExService {
-  private url = 'http://localhost:8989/conduite';
+  private url = 'http://localhost:8989/conduiteEx';
   public conduiteEx: ConduiteEx = new ConduiteEx();
 
   constructor(private httpClient: HttpClient) {

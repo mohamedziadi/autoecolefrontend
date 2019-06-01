@@ -56,7 +56,7 @@ export class MoniteurComponent implements OnInit {
     this.router.navigate(['moniteur', 'new']);
   }
   private  edit(moniteur: Moniteur) {
-    // this.moniteurService.moniteur = moniteur;
+    this.moniteurService.moniteur = moniteur;
     this.router.navigate(['moniteur', 'edit']);
   }
 
